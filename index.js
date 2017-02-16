@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 const knownDecepticons = ['Megatron', 'Skywarp', 'Laserbeak', 'Barricade'];
 
 const robots = [
@@ -21,3 +22,17 @@ const zebraStripes = [
   { width: 0.59, color: null },
   { width: 7.31, color: null },
 ];
+
+const sortedRobots = robots.map(robot => {
+  const isDecepticon = knownDecepticons.includes(robot.name);
+  return Object.assign({}, robot, {
+    alliance: isDecepticon ? 'decepticon' : 'autobot'
+  });
+});
+
+const coloredZebraStripes = zebraStripes.map((stripe, index) => {
+  const isEven = (index % 2) === 0;
+  return Object.assign({}, stripe, {
+    color: isEven ? 'black' : 'white'
+  });
+});
