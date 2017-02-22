@@ -11,6 +11,22 @@ const robots = [
   { name: 'Ratchet', alliance: null }
 ];
 
+var sortedRobots = robots.map(function(robot) {
+  var isDeceptocon = knownDecepticons.includes(robot.name);
+  return Object.assign({}, robot, {
+    alliance: isDeceptocon ? "decepticon" : "autobot"
+  });
+  // var alliance;
+  // if (knownDecepticons.includes(robot.name)) {
+  //   alliance = "decepticon";
+  // } else {
+  //   alliance = "autobot";
+  // }
+  // return Object.assign({}, robot, {
+  //   alliance: alliance
+  // });
+});
+
 const zebraStripes = [
   { width: 9.12, color: null },
   { width: 5.71, color: null },
@@ -21,3 +37,19 @@ const zebraStripes = [
   { width: 0.59, color: null },
   { width: 7.31, color: null },
 ];
+
+var coloredZebraStripes = zebraStripes.map(function(stripe, index) {
+  var isEven = (index % 2) === 0;
+  return Object.assign({}, stripe, {
+    color: isEven ? "black" : "white"
+  });
+  // var color;
+  // if (index === 0 || (index % 2) === 0) {
+  //   color = "black";
+  // } else {
+  //   color = "white";
+  // }
+  // return Object.assign({}, stripe, {
+  //   color: color
+  // });
+});
