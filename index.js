@@ -1,3 +1,4 @@
+"use strict"; 
 const knownDecepticons = ['Megatron', 'Skywarp', 'Laserbeak', 'Barricade'];
 
 const robots = [
@@ -21,3 +22,18 @@ const zebraStripes = [
   { width: 0.59, color: null },
   { width: 7.31, color: null }
 ];
+
+var sortedRobots;
+sortedRobots = robots.map(function(robot) {
+  var copy = Object.assign({}, robot); 
+  var alliance = knownDecepticons.includes(copy.name) ? 'autobot' : 'decepticon'; 
+  copy.alliance = alliance; 
+  return copy; 
+}); 
+
+var coloredZebraStripes = zebraStripes.map(function(stripe, index) {
+  var copy = Object.assign({}, stripe); 
+  var color = (index % 2 == 0) ? 'black' : 'white'; 
+  copy.color = color; 
+  return copy; 
+}); 
