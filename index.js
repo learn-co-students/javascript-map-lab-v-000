@@ -11,22 +11,26 @@ const robots = [
   { name: 'Ratchet', alliance: null }
 ];
 
-// function checkDecepticons(robot_name) {
-//   knownDecepticons.includes(robot_name) ? "decepticon" : "autobot"
-// }
-//
-// const sortedRobots = robots.map(function (robot) {
-//   return Object.assign({}, robot, {
-//     alliance: checkDecepticons(robot.name),
-//   });
-// });
+function checkDecepticons(robot_name) {
+  if (knownDecepticons.includes(robot_name)) {
+    return 'decepticon'
+  } else {
+    return 'autobot'
+  }
+}
 
-const sortedRobots = robots.map(robot => {
-  const isDecepticon = knownDecepticons.includes(robot.name);
+const sortedRobots = robots.map(function (robot) {
   return Object.assign({}, robot, {
-    alliance: isDecepticon ? 'decepticon' : 'autobot'
+    alliance: checkDecepticons(robot.name),
   });
 });
+
+// const sortedRobots = robots.map(robot => {
+//   const isDecepticon = knownDecepticons.includes(robot.name);
+//   return Object.assign({}, robot, {
+//     alliance: isDecepticon ? 'decepticon' : 'autobot'
+//   });
+// });
 
 const zebraStripes = [
   { width: 9.12, color: null },
@@ -38,3 +42,10 @@ const zebraStripes = [
   { width: 0.59, color: null },
   { width: 7.31, color: null }
 ];
+
+var coloredZebraStripes = zebraStripes.map((stripe, index) => {
+  const isEven = (index % 2) === 0;
+  return Object.assign({}, stripe, {
+    color: isEven ? 'black' : 'white'
+  });
+});
