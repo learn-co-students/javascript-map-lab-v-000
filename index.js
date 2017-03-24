@@ -34,6 +34,6 @@ var sortedRobots = robots.map( robot => {
 var coloredZebraStripes = zebraStripes.map((stripe, index) => {
   var even = (index %2);
   return Object.assign({}, stripe, {
-    color: even ? 'black' : 'white'
+    color: even ? 'black' : 'white';
   });
 });
