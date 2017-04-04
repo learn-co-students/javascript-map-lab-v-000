@@ -9,7 +9,7 @@ const robots = [
   { name: 'Megatron', alliance: null },
   { name: 'Ironhide', alliance: null },
   { name: 'Ratchet', alliance: null }
-];
+]; //an array of objects
 
 const zebraStripes = [
   { width: 9.12, color: null },
@@ -35,6 +35,6 @@ var coloredZebraStripes = zebraStripes.map((stripe, index) => {
   var even = (index %2);
   return Object.assign({}, stripe, {
     color: even ? 'black' : 'white'
-    
+
   });
 });
