@@ -23,6 +23,7 @@ const zebraStripes = [
 ];
 
 // Map Lab Exercises
+//
 
 var sortedRobots = robots.map(function(robot) {
   if (knownDecepticons.includes(robot.name)) {
