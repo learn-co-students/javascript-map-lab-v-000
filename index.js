@@ -23,25 +23,20 @@ const zebraStripes = [
 ];
 
 
-const sortedRobots = robots.map(function (robots) {
-  if robots.prototype.includes(knownDecepticons) {
-    return Object.assign({} robot, {
-      alliance: 'autobot',
-    } else {
-      alliance: 'decepticon',
-    });
+const sortedRobots = robots.map(function (robot) {
+   const isDecepticon = knownDecepticons.includes(robot.name)
+     return Object.assign({}, robot, {
+       alliance: isDecepticon ? 'decepticon' : 'autobot'
+     });
+   });
+
+
+
+const coloredZebraStripes = zebraStripes.map(function (zebraStripe, i) {
+  const newStripes = i % 2 === 0;
+  return Object.assign({}, zebraStripe, {
+    color: newStripes ? 'black' : 'white'
   });
-}
-
-const coloredZebraStripes = zebraStripes.map(function (zebraStripes, i) {
-  if (zebraStripes[i] === % 2 = 0) {
-    return "black";
-  } else {
-    return "white";
-  }
-  return Object.assign({} robot, {
-    alliance: 'autobot',
-
-}
+});
 
 // The Object.assign() method is used to copy the values of all enumerable own properties from one or more source objects to a target object. It will return the target object.
