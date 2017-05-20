@@ -12,12 +12,9 @@ const robots = [
 ];
 
 var sortedRobots = robots.map(function (robot) {
+  var decepticon = knownDecepticons.includes(robot.name)
   return Object.assign({}, robot, {
-      if (knownDecepticons.includes(robot)) {
-        alliance: decepticon
-      } else {
-        alliance: autobot
-      }
+     alliance: decepticon ? "decepticon" : "autobot"
     });
   });
 
@@ -31,3 +28,9 @@ const zebraStripes = [
   { width: 0.59, color: null },
   { width: 7.31, color: null }
 ];
+
+var coloredZebraStripes = zebraStripes.map(function (stripe, index) {
+  return Object.assign({}, stripe, {
+     color: index % 2 ? "black" : "white"
+    });
+});
