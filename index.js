@@ -39,10 +39,3 @@ var coloredZebraStripes = zebraStripes.map(function (stripe, index) {
     }
 
 });
-
-const transformedAutobotsWithMap = autobots.map(function (autobot) {
-  return Object.assign({}, autobot, {
-    strength: autobot.strength * 2,
-    isTransformed: true,
-  });
-});
