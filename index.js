@@ -1,4 +1,10 @@
 const knownDecepticons = ['Megatron', 'Skywarp', 'Laserbeak', 'Barricade'];
+function isEven(value) {
+	if (value%2 == 0)
+		return true;
+	else
+		return false;
+}
 
 const robots = [
   { name: 'Bumblebee', alliance: null },
@@ -11,6 +17,17 @@ const robots = [
   { name: 'Ratchet', alliance: null }
 ];
 
+
+const sortedRobots = robots.map((robot) => {
+  if (knownDecepticons.includes(robot.name)) {
+    console.log("in the if loop")
+    return Object.assign({},robot,{alliance: 'decepticon'})
+  } else {
+    console.log("in the else loop")
+    return Object.assign({},robot,{alliance: 'autobot'})
+  };
+});
+
 const zebraStripes = [
   { width: 9.12, color: null },
   { width: 5.71, color: null },
@@ -21,3 +38,13 @@ const zebraStripes = [
   { width: 0.59, color: null },
   { width: 7.31, color: null }
 ];
+
+const coloredZebraStripes = zebraStripes.map((zebra, index) => {
+  if (isEven(index)) {
+    console.log("in the if loop")
+    return Object.assign({},zebra,{color: 'black'})
+  } else {
+    console.log("in the else loop")
+    return Object.assign({},zebra,{color: 'white'})
+  };
+});
