@@ -42,7 +42,7 @@ const zebraStripes = [
 ];
 
 var coloredZebraStripes = zebraStripes.map(function(zebraStripe, index) {
-  if ((index+1) % 2 === 0) {
+  if (index % 2 === 0) {
     return Object.assign({}, zebraStripe, {
       color: "black"
     })
