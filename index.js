@@ -23,12 +23,16 @@ const zebraStripes = [
 ];
 
 const sortedRobots = robots.map(function(robot) {
+  var isDecep = knownDecepticons.includes(robot.name);
+
   return Object.assign({}, robot, {
-    if (knownDecepticons.includes(robot.name)) {
-      alliance: "decepticon"
-    }
-    else {
-      alliance: "autobot"
-    }
+    alliance: isDecep ? 'decepticon' : 'autobot'
+  });
+});
+
+const coloredZebraStripes = zebraStripes.map(function(stripes, width) {
+  const isEven = width%2 === 0;
+  return Object.assign({}, stripes, {
+    color: isEven ? "black" : "white"
   });
 });
