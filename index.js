@@ -21,3 +21,19 @@ const zebraStripes = [
   { width: 0.59, color: null },
   { width: 7.31, color: null }
 ];
+
+function isEven(n){
+  return n % 2 === 0
+}
+
+var sortedRobots = robots.map(function(robot) {
+  return Object.assign({}, robot, {
+    alliance: knownDecepticons.includes(robot.name) ? "decepticon" : "autobot"
+  });
+});
+
+var coloredZebraStripes = zebraStripes.map(function(stripe, index) {
+  return Object.assign({}, stripe, {
+    color: isEven(index) ? "black" : "white"
+  });
+});
