@@ -19,12 +19,20 @@ const zebraStripes = [
   { width: 8.34, color: null },
   { width: 7.77, color: null },
   { width: 0.59, color: null },
-  { width: 7.31, color: null },
+  { width: 7.31, color: null }
 ];
 
-const sortedRobots = robots.map(robot => {
-  const isDecepticon = knownDecepticons.includes(robot.name);
-  return Object.assign({}, robot, {
-    alliance: isDecepticon ? 'decepticon' : 'autobot'
+
+var sortedRobots = robots.map(function(robot){
+  const aDecepticon = knownDecepticons.includes(robot.name);
+  return Object.assign({},robot,{
+    alliance: aDecepticon ? 'decepticon' : 'autobot'
+  });
+});
+
+var coloredZebraStripes = zebraStripes.map(function(stripe, index){
+  const isEven = (index % 2)===0;
+  return Object.assign({}, stripe, {
+    color: isEven? 'black' : 'white'
   });
 });
