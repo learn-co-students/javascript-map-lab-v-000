@@ -21,3 +21,22 @@ const zebraStripes = [
   { width: 0.59, color: null },
   { width: 7.31, color: null }
 ];
+
+// create whole new object and hardcode new keys/values
+const sortedRobots = robots.map(
+  robot => {
+    return knownDecepticons.includes(robot.name) ?
+      {name: robot.name, alliance: 'decepticon'} :
+      {name: robot.name, alliance: 'autobot'};
+  }
+);
+
+// object assign to only overwrite color key's value
+const coloredZebraStripes = zebraStripes.map(
+  zebra => {
+    return Object.assign({}, zebra, {
+      color: zebraStripes.indexOf(zebra) % 2 === 0 ?
+        'black' : 'white'
+    });
+  }
+);
